@@ -26,6 +26,7 @@ class bcolors:
 print(f"\n{bcolors.red}NOTE:{bcolors.end} Place the two files in this directory!\n      Hit enter twice to use the defaults({bcolors.green}successful.csv{bcolors.end} and {bcolors.green}failed.csv{bcolors.end}).\n")
 successful_file = input(
     f"Enter name of the csv file with {bcolors.green}successful{bcolors.end} payments: ") or "successful.csv"
+
 with open(f"./{successful_file}", "r") as file:
     reader = csv.reader(file)
     next(reader)
@@ -43,6 +44,7 @@ with open(f"./{successful_file}", "r") as file:
 
 failures_file = input(
     f"Enter name of the csv file with {bcolors.red}failed{bcolors.end} payments:") or "failed.csv"
+
 with open(f"./{failures_file}", "r") as file:
     reader = csv.reader(file)
     next(reader)
@@ -70,7 +72,7 @@ with open(f"./{failures_file}", "r") as file:
 
 
 print(f"\nTOTAL SUCCESS: {bcolors.green}{total_success_count}{bcolors.end}")
-print(f"TOTAL FAILURES: {bcolors.green}{total_failure_count}{bcolors.end}")
+print(f"TOTAL FAILURES: {bcolors.red}{total_failure_count}{bcolors.end}")
 
 print(f"{bcolors.green}\n\nOTHER DESCRIPTIONS{bcolors.end}")
 for key, value in other_description_failures.items():
